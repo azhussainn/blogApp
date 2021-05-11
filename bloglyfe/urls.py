@@ -10,7 +10,11 @@ urlpatterns = [
 
     path('api/blog/', include('blog.urls')),
 
-    path('admin/', admin.site.urls),
+
+
+    path(r'auth/', include('djoser.urls')),
+    path(r'auth/', include('djoser.urls.jwt')),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += [re_path(r'^.*', TemplateView.as_view(template_name='index.html'))]
